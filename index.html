@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090608">
+<title>For Butki ❤️</title>
+<style>
+:root{--bg:#090608;--panel:#160b10;--red:#ff3158;--pink:#ff9aaa;--text:#fff3f5;--muted:#c9aeb5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% 0%,#3a0d1b 0,#12080d 35%,var(--bg) 72%);color:var(--text);font-family:Georgia,'Times New Roman',serif;overflow-x:hidden}
+button{font:inherit}.glow{color:var(--pink);text-shadow:0 0 18px #ff315866}
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:32px 20px;position:relative;overflow:hidden}
+.hero:before,.hero:after{content:"❤";position:absolute;color:#ff31581c;font-size:clamp(150px,35vw,360px);z-index:0;animation:pulse 3s ease-in-out infinite}.hero:after{font-size:100px;right:12%;top:18%;animation-delay:1s}
+.hero-inner{position:relative;z-index:1;max-width:720px}.eyebrow{letter-spacing:5px;text-transform:uppercase;color:var(--pink);font:12px Arial,sans-serif}
+h1{font-size:clamp(3.4rem,13vw,7rem);line-height:.95;margin:18px 0;color:#fff;text-shadow:0 0 30px #ff31584d}
+.subtitle{font-size:clamp(1.1rem,3vw,1.4rem);color:#f5dce2;line-height:1.6}
+.btn{border:1px solid #ff718b;background:linear-gradient(135deg,#b90f39,#ff3158);color:white;padding:14px 24px;border-radius:999px;cursor:pointer;box-shadow:0 8px 30px #ff315833;transition:.25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 38px #ff315866}
+.musicbar{position:fixed;z-index:10;top:14px;right:14px;display:flex;gap:8px;align-items:center;background:#160b10e8;border:1px solid #7e263d;border-radius:999px;padding:8px 12px;backdrop-filter:blur(10px);font:12px Arial,sans-serif}
+.musicbar button{background:transparent;border:0;color:#fff;cursor:pointer;font-size:16px}.musicbar label{cursor:pointer;color:#ffdce4}.musicbar input{display:none}
+section{padding:78px 20px;max-width:1050px;margin:auto}.section-kicker{text-align:center;color:var(--pink);letter-spacing:4px;text-transform:uppercase;font:11px Arial,sans-serif}
+h2{text-align:center;font-size:clamp(2rem,7vw,3.3rem);margin:12px 0 18px}.intro{text-align:center;color:var(--muted);max-width:650px;margin:0 auto 34px;line-height:1.8;font-size:1.05rem}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.photo{margin:0;background:#1c0d13;padding:8px;border:1px solid #652036;border-radius:16px;box-shadow:0 12px 35px #0008;overflow:hidden}.photo img{width:100%;height:300px;object-fit:cover;border-radius:10px;display:block;transition:transform .5s}.photo:hover img{transform:scale(1.035)}.photo figcaption{text-align:center;padding:10px 4px 4px;color:#f3cbd4;font-size:.95rem}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:linear-gradient(145deg,#241018,#12090e);border:1px solid #642037;border-radius:18px;padding:22px;text-align:center;line-height:1.7;color:#f5dfe4}.card b{display:block;color:var(--pink);font-size:1.15rem;margin-bottom:8px}
+.memory{max-width:760px;margin:0 auto;background:linear-gradient(145deg,#220d16,#10080c);border:1px solid #7b2942;border-radius:22px;padding:28px;text-align:center;line-height:1.9;font-size:1.08rem;box-shadow:0 15px 45px #0008}
+.quote{font-size:clamp(1.3rem,4vw,1.9rem);font-style:italic;color:#ffd5de;line-height:1.6;margin:0}
+.letter{white-space:pre-line;text-align:left}.final{text-align:center;padding-bottom:100px}.big-heart{font-size:55px;animation:pulse 1.8s infinite;display:inline-block}
+footer{text-align:center;padding:20px;color:#a88791;font:12px Arial,sans-serif}
+.floating{position:fixed;bottom:-30px;pointer-events:none;z-index:0;animation:floatUp linear forwards;color:#ff5578}
+@keyframes pulse{50%{transform:scale(1.08);filter:drop-shadow(0 0 18px #ff3158)}}@keyframes floatUp{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+@media(max-width:680px){.gallery{grid-template-columns:1fr 1fr}.photo img{height:220px}.cards{grid-template-columns:1fr}.musicbar{top:9px;right:9px}.musicbar .music-label{display:none}}
+@media(max-width:420px){.photo img{height:180px}.gallery{gap:8px}.photo{padding:5px}}
+</style>
+</head>
+<body>
+<div class="musicbar">
+  <button id="musicToggle" aria-label="Play music">▶</button>
+  <span class="music-label" id="musicStatus">Our song</span>
+  <label title="Choose a song from your phone">＋ Song<input id="songFile" type="file" accept="audio/*"></label>
+</div>
+<audio id="bgMusic" src="song.mp3" loop preload="auto"></audio>
+
+<header class="hero" id="home">
+ <div class="hero-inner">
+  <div class="eyebrow">a little surprise, made with love</div>
+  <h1>For <span class="glow">Butki</span> 😘</h1>
+  <p class="subtitle">A tiny corner of the internet, made just for you.<br>Because you make my ordinary moments feel special. ❤️</p>
+  <button class="btn" onclick="document.querySelector('#memories').scrollIntoView({behavior:'smooth'})">Open your surprise 💌</button>
+ </div>
+</header>
+
+<section id="memories">
+ <div class="section-kicker">little moments, big feelings</div>
+ <h2>Our <span class="glow">Memories</span> ❤️</h2>
+ <p class="intro">Har photo ke peeche ek moment hai, aur har moment ke saath meri ek favourite feeling.</p>
+ <div class="gallery">
+  <figure class="photo"><img src="assets/memory1.jpg" alt="A close photo together"><figcaption>My favourite kind of closeness ❤️</figcaption></figure>
+  <figure class="photo"><img src="assets/memory2.jpg" alt="A little moment together"><figcaption>Little moments with you</figcaption></figure>
+  <figure class="photo"><img src="assets/memory3.jpg" alt="A romantic moment together"><figcaption>Bas tum, main aur ye pal</figcaption></figure>
+  <figure class="photo"><img src="assets/memory4.jpg" alt="A sweet memory"><figcaption>One of my favourite memories</figcaption></figure>
+  <figure class="photo"><img src="assets/memory5.jpg" alt="Together at an event"><figcaption>Side by side feels like home</figcaption></figure>
+  <figure class="photo"><img src="assets/memory6.jpg" alt="A candid moment together"><figcaption>And I still look at you like this 🥹</figcaption></figure>
+ </div>
+</section>
+
+<section>
+ <div class="section-kicker">the little things</div><h2>What I <span class="glow">Love</span></h2>
+ <p class="intro">Mujhe tumhare saath kuch extraordinary nahi chahiye. Tum ho, toh simple moments bhi special ban jaate hain.</p>
+ <div class="cards">
+  <div class="card"><b>Your hand in mine</b>Tumhara haath pakad kar bas tumhari saari baatein sunte rehna. Mere liye wahi perfect time hai.</div>
+  <div class="card"><b>Your warm hugs</b>Tumhari baahon mein aakar aisa sukoon milta hai jaise duniya ki saari tension thodi der ke liye ruk gayi ho.</div>
+  <div class="card"><b>Your little talks</b>Tumhari chhoti-chhoti baatein bhi main ghanton sun sakta hoon. I never get bored of you.</div>
+ </div>
+</section>
+
+<section>
+ <div class="section-kicker">a moment I keep close</div><h2>Our First <span class="glow">Kiss</span> 💋</h2>
+ <div class="memory">Hamari first kiss ka moment aaj bhi yaad aata hai toh automatically smile aa jaati hai. Shayad tumhare liye bhi woh ek special pal ho, but mere liye woh memory hamesha dil ke bahut kareeb rahegi. ❤️</div>
+</section>
+
+<section>
+ <div class="section-kicker">from my heart</div><h2>A Little <span class="glow">Note</span> 💌</h2>
+ <div class="memory letter">My Love,
+
+Mujhe tumhare saath bas baithna pasand hai. Tumhara haath pakad kar tumhari saari baatein sunna, tumhe dekhte rehna, aur tumhari baahon mein sukoon se so jaana — honestly, mujhe aur kuch nahi chahiye.
+
+Main har baar perfect words nahi dhoondh pata, but I hope tum kabhi doubt na karo ki tum mere liye kitni special ho. Tumhari khushi mere liye matter karti hai, aur main chahta hoon ki tum apne har dream ko poora karo.
+
+Bas meri ek si wish hai: aane wale bahut saare birthdays par main tumhare paas baith kar tumhara haath pakde rahun.
+
+Happy Birthday, Butki. I love you. ❤️</div>
+</section>
+
+<section class="final">
+ <div class="big-heart">❤️</div>
+ <h2>In every little <span class="glow">moment</span>, I choose you.</h2>
+ <p class="intro">Thank you for being my favourite person, Butki. Here's to more memories, more laughter, more hugs, and more birthdays together.</p>
+ <p class="quote">“Mujhe har baar koi naya khoobsurat pal nahi chahiye,<br>bas har pal mein tumhara saath chahiye.”</p>
+ <p style="color:var(--pink);margin-top:28px">Forever your person. ❤️</p>
+ <button class="btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to the beginning ↑</button>
+</section>
+<footer>Made with love, just for Butki ❤️</footer>
+
+<script>
+const audio=document.getElementById('bgMusic');
+const toggle=document.getElementById('musicToggle');
+const status=document.getElementById('musicStatus');
+const picker=document.getElementById('songFile');
+let chosenUrl=null;
+// The uploaded birthday-song file is bundled as song.mp3.
+toggle.addEventListener('click',async()=>{
+ if(!audio.src){status.textContent='Add your song first';picker.click();return;}
+ if(audio.paused){try{await audio.play();toggle.textContent='❚❚';status.textContent='Playing our song ❤️';}catch(e){status.textContent='Tap play to start';}}
+ else{audio.pause();toggle.textContent='▶';status.textContent='Music paused';}
+});
+picker.addEventListener('change',()=>{
+ const file=picker.files[0]; if(!file)return;
+ if(chosenUrl)URL.revokeObjectURL(chosenUrl);
+ chosenUrl=URL.createObjectURL(file);audio.src=chosenUrl;audio.play().then(()=>{toggle.textContent='❚❚';status.textContent='Playing your song ❤️';}).catch(()=>{status.textContent='Tap ▶ to play';});
+});
+function heart(){const el=document.createElement('span');el.className='floating';el.textContent=Math.random()>.3?'♥':'♡';el.style.left=Math.random()*100+'vw';el.style.fontSize=(12+Math.random()*20)+'px';el.style.animationDuration=(7+Math.random()*6)+'s';document.body.appendChild(el);setTimeout(()=>el.remove(),14000)}
+setInterval(heart,850);
+</script>
+</body>
+</html>
